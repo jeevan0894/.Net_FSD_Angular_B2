@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Learning Platform - Enrollment</title>
+</head>
+<body>
+
+<header>
+    <h1>Online Learning Platform</h1>
+</header>
+
+<nav>
+    <a href="#">Home</a> |
+    <a href="#">Courses</a> |
+    <a href="#">About</a>
+</nav>
+
+<hr>
+
+<main>
+
+    <section>
+        <h2>Course Enrollment Form</h2>
+
+        <form action="#" method="post">
+
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <p>
+                    <label for="name">Full Name:</label><br>
+                    <input type="text" id="name" name="name" 
+                           required minlength="3" placeholder="Enter your name">
+                </p>
+
+                <p>
+                    <label for="email">Email Address:</label><br>
+                    <input type="email" id="email" name="email" 
+                           required placeholder="example@email.com">
+                </p>
+
+                <p>
+                    <label for="age">Age:</label><br>
+                    <input type="number" id="age" name="age" 
+                           min="16" max="60" required>
+                </p>
+
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Course Selection</legend>
+
+                <p>
+                    <label for="course">Choose Course:</label><br>
+                    <input list="course-list" id="course" name="course" 
+                           required placeholder="Start typing course name">
+
+                    <datalist id="course-list">
+                        <option value="HTML Fundamentals">
+                        <option value="CSS Basics">
+                        <option value="JavaScript Essentials">
+                        <option value="Python Programming">
+                        <option value="Data Science">
+                    </datalist>
+                </p>
+
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Skill Assessment</legend>
+
+                <p>
+                    <label for="skill">Skill Level (1 = Beginner, 10 = Advanced):</label><br>
+                    <input type="range" id="skill" name="skill" 
+                           min="1" max="10" value="5">
+                </p>
+
+                <p>
+                    <label>Skill Level Indicator:</label><br>
+                    <meter min="1" max="10" 
+                           low="3" high="7" optimum="10" value="5">
+                        5 out of 10
+                    </meter>
+                </p>
+
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Enrollment Status</legend>
+
+                <p>
+                    <label>Enrollment Completion:</label><br>
+                    <progress value="60" max="100">60%</progress>
+                </p>
+
+            </fieldset>
+
+            <br>
+
+            <p>
+                <input type="submit" value="Submit Enrollment">
+            </p>
+
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Online Learning Platform</p>
+</footer>
+
+</body>
+</html>
