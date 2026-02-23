@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile Manager</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            text-align: center;
+        }
+
+        #profileBox {
+            width: 300px;
+            margin: auto;
+            border: 2px solid #444;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f5f5f5;
+            text-align: left;
+        }
+
+        input {
+            padding: 8px;
+            margin-top: 10px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Dynamic Student Profile Manager</h2>
+    <div id="profileBox">
+      
+    </div>
+
+  
+    <input type="number" id="newMarks" placeholder="Enter new marks">
+    <br>
+    <button id="updateBtn">Update Marks</button>
+
+    <script>
+        var student = {
+            name: "Amit Sharma",
+            rollNo: 21,
+            marks: 75
+        };
+        function updateStudentProfile(studentObj) {
+            var profileDiv = document.getElementById("profileBox");
+
+            profileDiv.innerHTML = `
+                <p><strong>Name:</strong> ${studentObj.name}</p>
+                <p><strong>Roll No:</strong> ${studentObj.rollNo}</p>
+                <p><strong>Marks:</strong> ${studentObj.marks}</p>
+            `;
+        }
+
+        function updateMarks(newMarks) {
+            student.marks = newMarks;   
+            updateStudentProfile(student);
+        }
+        document.getElementById("updateBtn").addEventListener("click", function() {
+            var updatedValue = Number(document.getElementById("newMarks").value);
+            updateMarks(updatedValue);
+        });
+        updateStudentProfile(student);
+    </script>
+
+</body>
+</html>

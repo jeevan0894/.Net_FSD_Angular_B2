@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COUNTER</title>
+</head>
+<body>
+    <div>
+        <button onclick="clickinc()" id="incBtn" > INCREMENT </button>
+        <button id="resetBtn" onclick="resetCounter()" >RESET</button>
+        <p id="counterValue"></p>
+    </div>
+    <script>
+          // 🔹 Global counter variable
+        var counter = 0;
+
+        // 🔹 Function that increments counter by step
+        function incrementCounter(step) {
+            counter = counter + step;       // update counter
+            document.getElementById("counterValue").textContent = counter;  // update DOM
+        }
+
+       
+        function resetCounter() {
+            counter = 0;
+            document.getElementById("counterValue").textContent = counter;
+        }
+
+        // 🔹 Add event listeners (no inline JS)
+        document.getElementById("incBtn").addEventListener("click", function() {
+            incrementCounter(1);   // pass step value
+        });
+
+        document.getElementById("resetBtn").addEventListener("click", function() {
+            resetCounter();
+        });
+    </script>
+    
+</body>
+</html>

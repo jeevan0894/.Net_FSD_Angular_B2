@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting PAGE</title>
+    <style>
+        *{
+            margin: 0%;
+             text-align: center;
+        }
+        .container{
+            background-color: aquamarine;
+            text-align: center;
+            margin: 20vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20vh;
+        }
+        input,label {
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="name">ENTER YOUR NAME</label>
+        <input type="text" id="username" class="username" name="name">
+        <button id="mbutton" onclick="greeting()">Generate Greeting</button>
+        <p id="messg"></p>
+    </div>
+    <script>
+        function greeting(){
+            var name=document.getElementById("username").value;
+            var message="Hello ,"+name+" Welcome to our website"
+            document.getElementById("messg").innerHTML=message;
+            console.log(name);
+        }
+      
+    </script>
+    
+</body>
+</html>
