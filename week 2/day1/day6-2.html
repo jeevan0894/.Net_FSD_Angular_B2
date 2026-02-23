@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validation</title>
+</head>
+<body>
+    <h5>CANDIDATE FORM</h5>
+    <form action="">
+        <div>
+            <label for="username">ENTER YOUR NAME</label>
+            <input oninput="validatename()" type="text" id="username" class="username" placeholder="ENTER YOUR NAME HERE....">
+            <span id="namemsg" style="color: red;"></span>
+        </div>
+        <br>
+        <div>
+            <label for="email">ENTER YOUR EMAIL</label>
+            <input oninput="validateemail()" type="email" id="email" class="email" placeholder="ENTER YOUR EMAIL....">
+            <span id="emailmsg" style="color: red;"></span>
+        </div>
+        <br>
+        <div>
+            <label for="age">ENETR YOUR AGE</label>
+            <input onchange="validateage()" type="number" id="age" class="age" placeholder="ENTER YOUR AGE...">
+            <span id="agemsg"></span>
+        </div>
+        <br>
+    </form>
+
+    <button onclick="savedata()"> SAVE DATA</button>
+    <script>
+        function validatename(){
+            var name=document.getElementById("username").value;
+            if(name.trim()===""){
+                document.getElementById("namemsg").innerHTML="name SHOULD NOT BE EMPETY";
+                return false;
+            }
+            else{
+                document.getElementById("namemsg").innerHTML="hiiii";
+                return true;
+            }
+        }
+        function validateemail(){
+            var email=document.getElementById("email").value;
+            if(!email.includes("@")){
+                document.getElementById("emailmsg").innerHTML="ENETR VALID EMAIL";
+                return false;
+            }
+            else{
+                document.getElementById("emailmsg").innerHTML="";
+                return true;
+            }
+        }
+        function validateage(){
+            var age=document.getElementById("age").value;
+            if(age<18){
+                document.getElementById("agemsg").innerHTML="ENETR VALID AGE";
+                return false;
+            }
+            else{
+                document.getElementById("agemsg").innerHTML="";
+                return true;
+            }
+        }
+        function savedata(){
+            var usernam=validatename();
+            var useremail=validateemail();
+            var useage=validateage();
+            if(useage && usernam && useremail){
+                var userobj={
+                    name:document.getElementById("username").value,
+                    email:document.getElementById("email").value,
+                    age:document.getElementById("age").value
+
+                };
+                sessionStorage.setItem("userdat",JSON.stringify(userobj));
+                alert("data saved")
+            }
+            else{
+                alert("GIVE CORRECT DATA")
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
