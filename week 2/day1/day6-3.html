@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>location</title>
+</head>
+<body>
+    <h2>MY location</h2>
+    <button onclick="getlocation()">GET MY LOCATION</button>
+    <p id="latdisplay"></p>
+    <p id="logdisplay"></p>
+    <p id="diplayerror" style="color: red;"></p>
+    <div id="historyBox">
+
+    </div>
+
+    <script>
+        function getlocation(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showpostion,showerrow)
+            }
+            else{
+                document.getElementById("diplayerror").innerHTML="NOT SUPPORTED"
+            }
+        }
+        function showerrow(){
+            if (error.code === error.PERMISSION_DENIED) {
+                document.getElementById("errorDisplay").innerHTML ="Permission denied.";
+            }
+            else if (error.code === error.POSITION_UNAVAILABLE) {
+                document.getElementById("errorDisplay").innerHTML ="Location unavailable.";
+            }
+            else if (error.code === error.TIMEOUT) {
+                document.getElementById("errorDisplay").innerHTML ="Request timed out.";
+            }
+            else {
+                document.getElementById("errorDisplay").innerHTML ="Unknown error.";
+            }
+        }
+        function showpostion(position){
+            var lat=position.coords.latitude;
+            var log= position.coords.longitude;
+            document.getElementById("latdisplay").innerHTML="latitude"+lat;
+            document.getElementById("logdisplay").innerHTML="longitude"+log;
+            document.getElementById("diplayerror").innerHTML="";
+            saveLocation(lat, lon);
+        }
+         function saveLocation(lat, log) {
+            for (var i = 5; i >= 2; i--) {
+                var prev = localStorage.getItem("loc" + (i - 1));
+                if (prev !== null) {
+                    localStorage.setItem("loc" + i, prev);
+                }
+            }
+            var entry = "Lat: " + lat + " | Lon: " + log + " | Time: " + new Date().toLocaleString();
+            localStorage.setItem("loc1", entry);
+
+            displayHistory();
+        }
+        function displayHistory() {
+            var box = document.getElementById("historyBox");
+            box.innerHTML = "";
+
+            for (var i = 1; i <= 5; i++) {
+                var item = localStorage.getItem("loc" + i);
+                if (item) {
+                    box.innerHTML += "<p>" + item + "</p>";
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
