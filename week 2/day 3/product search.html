@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        #searchBox {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        li {
+            padding: 10px;
+            margin-bottom: 8px;
+            display: block;
+            border-radius: 4px;
+        }
+
+        #noResults {
+            margin-top: 20px;
+            font-size: 18px;
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Product Search</h2>
+
+    <input type="text" id="searchBox" placeholder="Search products...">
+
+    <ul id="productList"></ul>
+    <div id="noResults">No Results Found</div>
+
+    <script>
+        const products = [
+            "Laptop",
+            "Smartphone",
+            "Headphones",
+            "Keyboard",
+            "Mouse",
+            "Speaker",
+            "Monitor",
+            "Tablet",
+            "Charger",
+            "USB Cable"
+        ];
+        const searchBox = document.getElementById("searchBox");
+        const productList = document.getElementById("productList");
+        const noResults = document.getElementById("noResults");
+
+        function renderProducts(productArray) {
+            productList.innerHTML = ""; 
+
+            productArray.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                productList.appendChild(li);
+            });
+        }
+        function filterProducts(keyword) {
+            const filtered = products.filter(product =>
+                product.toLowerCase().includes(keyword.toLowerCase())
+            );
+            if (filtered.length > 0) {
+                renderProducts(filtered);
+                noResults.style.display = "none";
+            } else {
+                productList.innerHTML = "";
+                noResults.style.display = "block";
+            }
+        }
+        searchBox.addEventListener("input", (e) => {
+            filterProducts(e.target.value);
+        });
+        renderProducts(products);
+
+    </script>
+
+</body>
+</html>

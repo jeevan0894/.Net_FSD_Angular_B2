@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Theme Toggle Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            padding: 40px;
+        }
+
+        .toggle-btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .dark-mode {
+            background-color:black;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="themeToggle" class="togglebtn">Switch to Dark Mode</button>
+
+    <h1>Welcome to My Blog</h1>
+    <p>This is some sample content to demonstrate theme switching.</p>
+
+    <script>
+        const toggleBtn = document.getElementById("themeToggle");
+        toggleBtn.addEventListener("click", toggleTheme);
+        function loadTheme() {
+            const savedTheme = localStorage.getItem("theme");
+
+            if (savedTheme === "dark") {
+                document.body.classList.add("dark-mode");
+                toggleBtn.textContent = "Switch to Light Mode";
+            }
+        }loadTheme();
+
+        function toggleTheme() {
+            document.body.classList.toggle("dark-mode");
+
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                toggleBtn.textContent = "Switch to Light Mode";
+            } else {
+                localStorage.setItem("theme", "light");
+                toggleBtn.textContent = "Switch to Dark Mode";
+            }
+        }
+    </script>
+
+</body>
+</html>

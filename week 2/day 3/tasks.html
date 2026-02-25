@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        #taskInput {
+            padding: 10px;
+            width: 250px;
+            font-size: 16px;
+        }
+
+        #addBtn {
+            padding: 10px 16px;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+
+        ul {
+            margin-top: 20px;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            padding: 10px;
+            background: #f4f4f4;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 4px;
+        }
+
+        li.completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .delete-btn {
+            color: white;
+            background: red;
+            border: none;
+            padding: 6px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>To-Do List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button id="addBtn">Add Task</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        const input = document.getElementById("taskInput");
+        const addBtn = document.getElementById("addBtn");
+        const list = document.getElementById("taskList");
+
+        function createTaskElement(taskText) {
+            const li = document.createElement("li");
+
+            li.innerHTML = `
+                <span class="task-text">${taskText}</span>
+                <button class="delete-btn">Delete</button>
+            `;
+
+            return li;
+        }
+        function addTask() {
+            const text = input.value.trim();
+            if (!text) return;
+
+            const taskItem = createTaskElement(text);
+            list.appendChild(taskItem);
+            input.value = "";
+        }
+        function handleListClick(event) {
+            const target = event.target;
+            if (target.classList.contains("delete-btn")) {
+                const li = target.parentElement;
+                li.remove();
+            }
+
+            // Mark task complete
+            if (target.classList.contains("task-text")) {
+                target.parentElement.classList.toggle("completed");
+            }
+        }
+
+
+        addBtn.addEventListener("click", addTask);
+        input.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") addTask();
+        });
+        list.addEventListener("click", handleListClick);
+    </script>
+
+</body>
+</html>
