@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Contact Form</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="display-3 text-center">CONTACT FORM</h2>
+        <form class="row needs-validation" novalidate action="/" method="post">
+        <div class="col-md-6">
+            <label for="fullname" class="form-label">FULL NAME</label>
+            <input type="text" id="fullname" class="form-control" required placeholder="ENTER YOUR FULL NAME..">
+        </div>
+        
+        <div class="col col-md-6">
+            <label for="email" class="form-label">EMAIL</label>
+            <input type="email" id="email" class="form-control " required placeholder="ENTER YOUR EMAIL">
+        </div>        
+
+        <div class="col-md-6">
+
+            <label for="phno" class="form-label"> PHONE NUMBER</label>
+            <input type="tel" id="phno" class="form-control" required placeholder="ENETR YOUR PHONE NUMBEr...">
+        </div>
+
+        <div class="col-md-6">
+            <label for="sub" class="form-label"> Subject </label>
+            <input type="text" class="form-control" id="sub" placeholder="ENTER HERE....." required>
+        </div>
+        
+        <div class="col-md-12">
+
+            <label for="MESSAGE" class="form-label">MESSAGE</label>
+            <textarea name="MESSAGE" id="MESSAGE " class="form-control" placeholder=" ENETR YOUR TEXT HERE...."></textarea>
+        </div>
+
+        <div class="col-md-12 text-center mt-3">
+
+            <BUtton class="btn btn-success btn-primary px-4" value="submit">SUBMIT</BUtton>
+            <button class="btn btn-success btn-secondary px-4 ms-2" value="reset">RESET</button>
+        </div>
+        </form>
+    </div>
+</body>
+</html>
