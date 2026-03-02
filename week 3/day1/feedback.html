@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        textarea,input{
+            margin: 12px;
+            width: 100%;
+        }
+         .message {
+            margin-top: 15px;
+            padding: 10px;
+            display: none;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        input, textarea, select {
+            width: 100%;
+            margin-bottom: 12px;
+            padding: 8px;
+        }
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div >
+        <form action="/" method="post">
+            <label for="name">ENTER YOUR NAME</label>
+            <input type="text" id="name" class="name" placeholder="ENTER your NAME....">
+            <br>
+            <label for="email">ENTER YOUR EMAIL</label>
+            <input type="email" id="email" placeholder="ENTER YOUR EMAIL....">
+            <br>
+            <label for="course">ENTER your course rating</label>
+            <select name="dropdown" id="course">
+                <option value="">--Select--</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Average">Average</option>
+                <option value="Poor">Poor</option>
+            </select>
+            <label for="comment">Comment</label>
+            <br>
+            <textarea name="comment" id="comment"></textarea>
+            <br>
+            <button type="button" id="btn">Submit</button>
+        </form>
+        <div id="message" class="message"></div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                var nam=$("#name").val().trim();
+                var emal=$("#email").val().trim();
+                if(nam ===""||emal===""){
+                    $("#message")
+                    .removeClass("success")
+                    .addClass("error")
+                    .text("enter your feed back")
+                    .slideDown();
+                    return;
+                }
+                else{
+                    $("#message")
+                    .removeClass("error")
+                    .addClass("success")
+                    .text("thank for submiting your feedback")
+                    .slideDown();
+                    return;
+                    $("form")[0].reset();
+                }
+            });
+        }
+        
+
+        );
+    </script>
+    
+</body>
+</html>

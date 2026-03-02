@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Section</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            width: 600px;
+            margin: 40px auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+        .question {
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .question.active {
+            color: #007bff;
+        }
+        .answer {
+            display: none;
+            padding: 10px 0;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Frequently Asked Questions (FAQ)</h2>
+
+    <div class="faq-item">
+        <div class="question">1. What services does your company offer?</div>
+        <div class="answer">We provide web development, software consulting, and cloud solutions.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question">2. How can I contact customer support?</div>
+        <div class="answer">You can reach us by email or through the support section on our website.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question">3. Do you offer refunds?</div>
+        <div class="answer">Yes, refunds are available within the first 14 days of purchase.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question">4. Where are you located?</div>
+        <div class="answer">Our headquarters are in Bangalore, with offices worldwide.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="question">5. Do you provide training programs?</div>
+        <div class="answer">Yes, we offer training in web technologies, programming, and cloud computing.</div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            $(".question").click(function () {
+
+                $(this).next(".answer").slideToggle();
+
+                $(this).toggleClass("active");
+
+                $(".answer").not($(this).next()).slideUp();
+                $(".question").not(this).removeClass("active");
+            });
+
+        });
+    </script>
+
+</body>
+</html>
