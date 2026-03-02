@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Landing Page</title>
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Theme Using CSS Variables -->
+  <style>
+    :root {
+      --bs-primary: #1e88e5;
+      --bs-secondary: #e0e0e0;
+      --bs-dark: #1a1a1a;
+      --bs-light: #f5f5f5;
+    }
+    body {
+      background: var(--bs-light);
+    }
+    .hero {
+      background: linear-gradient(to right, #1e88e5, #42a5f5);
+      color: white;
+      padding: 120px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR WITH OFFCANVAS -->
+<nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">ShopNow</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="offcanvas offcanvas-end bg-primary text-white" id="offcanvasMenu">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item"><a class="nav-link text-white" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#">Products</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero text-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Premium Products, Unbeatable Prices</h1>
+    <a href="#" class="btn btn-light btn-lg">Shop Now</a>
+  </div>
+</section>
+
+
+
+
+<div class="container mb-5">
+  <h2 class="fw-bold mb-4 text-center">Trending Now</h2>
+
+  <div class="row g-4">
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card shadow-sm h-100">
+        <img src="https://via.placeholder.com/400" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Smartwatch X</h5>
+          <p class="card-text text-muted">High-tech wearable for daily use.</p>
+          <button class="btn btn-primary w-100">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card shadow-sm h-100">
+        <img src="https://via.placeholder.com/400" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Wireless Headphones</h5>
+          <p class="card-text text-muted">Experience immersive sound.</p>
+          <button class="btn btn-primary w-100">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card shadow-sm h-100">
+        <img src="https://via.placeholder.com/400" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">4K HD TV</h5>
+          <p class="card-text text-muted">Brilliant picture clarity.</p>
+          <button class="btn btn-primary w-100">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-lg-3">
+      <div class="card shadow-sm h-100">
+        <img src="https://via.placeholder.com/400" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Gaming Laptop</h5>
+          <p class="card-text text-muted">Power meets performance.</p>
+          <button class="btn btn-primary w-100">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="py-5 bg-dark text-white">
+  <div class="container text-center">
+    <h3 class="fw-bold mb-3">Subscribe for Exclusive Deals</h3>
+    <p class="mb-4">Get the latest offers delivered straight to your inbox.</p>
+
+    <form class="row g-3 justify-content-center">
+      <div class="col-md-6 col-sm-8">
+        <input type="email" class="form-control" placeholder="Enter your email" required>
+      </div>
+      <div class="col-md-2 col-sm-4">
+        <button class="btn btn-primary w-100">Subscribe</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="py-4 bg-primary text-center text-white">
+  <p class="mb-0">&copy; 2025 ShopNow. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
